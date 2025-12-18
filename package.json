@@ -1,0 +1,27 @@
+{
+  "name": "project-weather-app",
+  "version": "1.0.0",
+  "description": "This a weather app that tells weather",
+  "keywords": [
+    "weather",
+    "climate",
+    "rain",
+    "hot",
+    "cool"
+  ],
+  "license": "ISC",
+  "author": "Sumit Yadav",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon index.js"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.0.1",
+    "tailwindcss": "^4.1.18"
+  }
+}

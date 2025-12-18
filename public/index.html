@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Todo App</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <style>
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom,
+                    #ede9fe,
+                    /* light purple */
+                    #dbeafe,
+                    /* light blue */
+                    #fce7f3
+                    /* light pink */
+                );
+
+            z-index: 9999;
+            transition: transform 1s ease-in-out;
+        }
+
+
+        .slide-up {
+            transform: translateY(-100%);
+            /* move whole container up */
+        }
+
+        .text {
+            font-size: 8rem;
+            color: #1f2937;
+            font-family: fantasy;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 py-8 px-4">
+    <div class="container">
+        <h1 class="text"></h1>
+    </div>
+    <div class="max-w-2xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">My Tasks</h1>
+            <p class="text-gray-600">Stay organized and productive</p>
+        </div>
+
+        <!-- Main Card -->
+        <div class="bg-white rounded-2xl shadow-xl p-6">
+            <!-- Input Section -->
+            <div class="flex gap-2 mb-6">
+                <input type="text" id="todoInput" placeholder="Add a new task..."
+                    class="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition" />
+                <button onclick="addTodo()"
+                    class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-xl hover:from-purple-600 hover:to-pink-600 transition font-medium shadow-lg shadow-purple-200">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        Add
+                    </span>
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                <span class="text-sm text-gray-600" id="activeCount">0 tasks remaining</span>
+                <span class="text-sm text-gray-600" id="totalCount">0 total</span>
+            </div>
+
+            <!-- Todo List -->
+            <div id="todoList" class="space-y-2">
+                <!-- Todos will be added here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="text-center py-12">
+                <svg class="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                <p class="text-gray-500">No tasks yet. Add one to get started!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="loading.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
